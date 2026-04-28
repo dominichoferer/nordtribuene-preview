@@ -52,6 +52,13 @@
   font-display: swap;
   src: url('assets/fonts/GCGrind.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Garage Shock';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('assets/fonts/GarageShock.ttf') format('truetype');
+}
 
 :root {
   --green-900: #1d5715;
@@ -131,12 +138,44 @@ a:hover { color: var(--green-900); }
   padding: 40px var(--gutter);
   text-align: center;
 }
+.hero-content--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2vw, 24px);
+}
 .hero-logo {
   width: clamp(280px, 42vw, 560px);
   height: auto;
   filter: brightness(0) invert(1);
   display: block;
   margin: 0 auto;
+}
+.hero-logo--mark {
+  width: clamp(140px, 18vw, 220px);
+}
+.hero-wordmark {
+  font-family: 'Garage Shock', var(--headline);
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: .9;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+  -webkit-text-stroke: 2px var(--green-700);
+  text-stroke: 2px var(--green-700);
+  paint-order: stroke fill;
+  text-shadow:
+    -1px -1px 0 var(--green-900),
+    3px 3px 0 var(--green-900),
+    0 10px 40px rgba(0,0,0,.5);
+}
+.hero-wordmark span { display: block; }
+.hero-wordmark span + span {
+  font-size: .55em;
+  letter-spacing: .12em;
+  margin-top: 4px;
 }
 @media (max-width: 720px) {
   .hero-banner { min-height: clamp(320px, 70vw, 460px); }
@@ -1631,16 +1670,22 @@ h2 {
 .page-header-content .crumb a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
 .page-header-content .crumb .sep { opacity: .55; }
 .page-header-content h1 {
-  font-family: var(--headline);
-  font-weight: 700;
-  font-size: clamp(44px, 7vw, 110px);
-  line-height: .95;
-  letter-spacing: .01em;
+  font-family: 'Garage Shock', var(--headline);
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 140px);
+  line-height: .92;
+  letter-spacing: .015em;
   text-transform: uppercase;
   margin: 0 auto;
   color: #fff;
-  text-shadow: 0 4px 24px rgba(0,0,0,.4);
-  max-width: 16ch;
+  -webkit-text-stroke: 2px var(--green-700);
+  text-stroke: 2px var(--green-700);
+  paint-order: stroke fill;
+  text-shadow:
+    -1px -1px 0 var(--green-900),
+    3px 3px 0 var(--green-900),
+    0 8px 32px rgba(0,0,0,.45);
+  max-width: 18ch;
 }
 .page-header-content h1::after {
   content: '';
