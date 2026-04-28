@@ -1557,3 +1557,192 @@ h2 {
   transition: width .4s cubic-bezier(.2,.7,.2,1);
 }
 .season-card:hover::after { width: 100%; }
+
+/* ============================================================
+   PAGE HEADER · Headline auf abgedunkeltem Headerbild (statt grünem Hero)
+   ============================================================ */
+
+.page-header-banner {
+  position: relative;
+  min-height: clamp(380px, 50vw, 560px);
+  background: url('assets/img/header.jpg') center 35% / cover no-repeat;
+  background-color: var(--green-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+.page-header-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,20,12,.5) 0%, rgba(8,20,12,.7) 100%);
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: clamp(40px, 6vw, 80px) var(--gutter);
+  max-width: 920px;
+  margin: 0 auto;
+}
+.page-header-content .crumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  margin: 0 0 22px;
+}
+.page-header-content .crumb a { color: rgba(255,255,255,.85); }
+.page-header-content .crumb a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.page-header-content .crumb .sep { opacity: .55; }
+.page-header-content h1 {
+  font-family: var(--headline);
+  font-weight: 700;
+  font-size: clamp(44px, 7vw, 110px);
+  line-height: .95;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0,0,0,.4);
+  max-width: 16ch;
+}
+.page-header-content h1::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: #fff;
+  margin: 24px auto 0;
+}
+.page-header-content .lead {
+  margin: 22px auto 0;
+  font-size: clamp(15px, 1.25vw, 19px);
+  color: rgba(255,255,255,.92);
+  max-width: 56ch;
+  line-height: 1.55;
+}
+
+/* Alte Page-Hero-Sektion komplett verstecken (falls noch im DOM) */
+.page-hero { display: none !important; }
+
+/* ============================================================
+   PAGE SECTION · GRÜN-Variante als Bruch im Inhalt
+   ============================================================ */
+
+.page-section--green,
+.page-section.page-section--green {
+  background: var(--green-700) !important;
+  color: #fff;
+  position: relative;
+}
+.page-section--green::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(0,0,0,.18), transparent 60%);
+  pointer-events: none;
+}
+.page-section--green > .container { position: relative; z-index: 1; }
+
+.page-section--green .ps-num {
+  -webkit-text-stroke: 2px rgba(255,255,255,.95);
+  color: transparent;
+}
+.page-section--green .ps-eyebrow { color: #fff; }
+.page-section--green .ps-eyebrow::before,
+.page-section--green .ps-eyebrow::after { background: #fff; }
+.page-section--green .ps-head h2 { color: #fff; }
+
+.page-section--green .prose,
+.page-section--green .prose p,
+.page-section--green .prose li { color: rgba(255,255,255,.95); }
+.page-section--green .prose .lede { color: rgba(255,255,255,.92); }
+.page-section--green .prose h2,
+.page-section--green .prose h3,
+.page-section--green .prose strong { color: #fff; }
+.page-section--green .prose a { color: #fff; text-decoration-color: rgba(255,255,255,.6); }
+.page-section--green .prose a:hover { text-decoration-color: #fff; }
+.page-section--green .prose blockquote {
+  border-left-color: #fff;
+  color: #fff;
+}
+.page-section--green .prose ul li::before { background: #fff; }
+.page-section--green .prose ol li::before { color: #fff; }
+
+.page-section--green .info-tile {
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.22);
+}
+.page-section--green .info-tile-label { color: rgba(255,255,255,.85); }
+.page-section--green .info-tile-value { color: #fff; }
+.page-section--green .info-tile-value a { color: #fff; }
+
+.page-section--green .tiles li {
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.22);
+}
+.page-section--green .tiles li::before { color: #fff; }
+.page-section--green .tiles strong { color: #fff; }
+.page-section--green .tiles p { color: rgba(255,255,255,.85); }
+
+.page-section--green .steps li {
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.22);
+  border-left-color: #fff;
+}
+.page-section--green .steps li::before { color: #fff; }
+.page-section--green .steps strong { color: #fff; }
+.page-section--green .steps p { color: rgba(255,255,255,.85); }
+
+.page-section--green .stat-strip {
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.25);
+}
+.page-section--green .stat-strip > div { border-right-color: rgba(255,255,255,.2); }
+.page-section--green .stat-strip .stat-num { color: #fff; }
+.page-section--green .stat-strip .stat-label { color: rgba(255,255,255,.85); }
+
+.page-section--green .highlight {
+  background: var(--ink);
+  color: #fff;
+}
+.page-section--green .highlight::before,
+.page-section--green .highlight::after { border-color: #fff; }
+
+.page-section--green .btn {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+}
+.page-section--green .btn:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.page-section--green .form-field input,
+.page-section--green .form-field textarea {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.3);
+  color: #fff;
+}
+.page-section--green .form-field input::placeholder,
+.page-section--green .form-field textarea::placeholder { color: rgba(255,255,255,.55); }
+.page-section--green .form-field input:focus,
+.page-section--green .form-field textarea:focus { border-color: #fff; }
+.page-section--green .form-field label { color: rgba(255,255,255,.85); }
+
+/* :nth-child(even) auto-bg darf grüne Variante nicht überschreiben */
+.page-section.page-section--green:nth-child(even) { background: var(--green-700) !important; }
