@@ -1746,3 +1746,30 @@ h2 {
 
 /* :nth-child(even) auto-bg darf grüne Variante nicht überschreiben */
 .page-section.page-section--green:nth-child(even) { background: var(--green-700) !important; }
+
+/* Sektions-Nummerierung ausblenden — wirkt sauberer */
+.ps-num { display: none; }
+.ps-head { gap: 14px; }
+.ps-head .ps-eyebrow { margin-top: 0; }
+
+/* Weißes Logo im Page-Header-Banner, klickbar zur Startseite */
+.page-header-logo {
+  position: absolute;
+  top: clamp(20px, 3vw, 32px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: block;
+  line-height: 0;
+}
+.page-header-logo img {
+  width: clamp(160px, 22vw, 240px);
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: .92;
+  transition: opacity .15s ease;
+}
+.page-header-logo:hover img { opacity: 1; }
+
+.page-header-banner { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(40px, 6vw, 80px); }
+.page-header-banner .page-header-content { padding-top: 0; padding-bottom: 0; }
