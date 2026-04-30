@@ -1781,6 +1781,127 @@ h2 {
 .page-section--green .info-tile-value { color: #fff; }
 .page-section--green .info-tile-value a { color: #fff; }
 
+/* Payment card — featured IBAN + meta grid */
+.payment-card {
+  margin: 2em 0;
+  display: grid;
+  gap: 22px;
+}
+.page-section--align-left .ps-head {
+  text-align: left;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+}
+.page-section--align-left .ps-head h2 { text-align: left; }
+.page-section--align-left .ps-body { text-align: left; }
+.page-section--align-left .ps-body .prose .lede { text-align: left; }
+.payment-card { gap: 28px; }
+
+/* Payment list — einfache vertikale Liste, linksbündig */
+.payment-list {
+  margin: 1.5em 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.payment-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  align-items: baseline;
+}
+.payment-row:first-child { padding-top: 0; }
+.payment-row:last-child { border-bottom: none; }
+.payment-row dt {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  margin: 0;
+}
+.payment-row dd {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.45;
+  word-break: break-word;
+}
+.payment-row dd.iban {
+  font-family: 'Big Shoulders Display', var(--headline);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: .04em;
+  font-feature-settings: 'tnum' 1;
+}
+@media (max-width: 600px) {
+  .payment-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+}
+.payment-card .payment-iban { padding: 32px 36px; gap: 16px; }
+.payment-card .payment-meta { gap: 24px; }
+.payment-card .payment-meta-item { padding: 24px 26px; gap: 12px; }
+.payment-iban {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.payment-iban::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: var(--green-700);
+}
+.payment-iban .info-tile-label { color: var(--green-700); }
+.payment-iban-value {
+  font-family: 'Big Shoulders Display', var(--headline);
+  font-weight: 800;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: .04em;
+  color: var(--ink);
+  font-feature-settings: 'tnum' 1;
+  white-space: nowrap;
+  overflow-x: auto;
+  line-height: 1.1;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 520px) {
+  .payment-iban-value { font-size: 20px; white-space: normal; word-break: break-word; }
+}
+.payment-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 800px) {
+  .payment-meta { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .payment-meta { grid-template-columns: 1fr; }
+}
+.payment-meta-item {
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.payment-meta-item .info-tile-label { color: rgba(255,255,255,.85); }
+.payment-meta-item .info-tile-value { color: #fff; font-size: 16px; word-break: break-word; }
+
 .page-section--green .tiles li {
   background: rgba(0,0,0,.18);
   border-color: rgba(255,255,255,.22);
@@ -1799,12 +1920,12 @@ h2 {
 .page-section--green .steps p { color: rgba(255,255,255,.85); }
 
 .page-section--green .stat-strip {
-  background: rgba(0,0,0,.18);
-  border-color: rgba(255,255,255,.25);
+  background: var(--green-900);
+  border-color: var(--green-900);
 }
-.page-section--green .stat-strip > div { border-right-color: rgba(255,255,255,.2); }
+.page-section--green .stat-strip > div { border-right-color: rgba(255,255,255,.18); }
 .page-section--green .stat-strip .stat-num { color: #fff; }
-.page-section--green .stat-strip .stat-label { color: rgba(255,255,255,.85); }
+.page-section--green .stat-strip .stat-label { color: rgba(255,255,255,.78); }
 
 .page-section--green .highlight {
   background: var(--ink);
